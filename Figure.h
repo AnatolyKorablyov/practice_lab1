@@ -29,6 +29,7 @@ public:
 	virtual bool getRect(Vector2f posMouse) = 0;
 	virtual void frameSetProperties();
 	virtual bool getFrame(Vector2f posMouse);
+	virtual void setProper();
 	virtual bool checkTapMarker(Vector2f posMouse);
 };
 

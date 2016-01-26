@@ -52,6 +52,10 @@ void Figure::resize(Vector2f posMouse) {
 	shape.setScale(size.x, size.y);
 }
 
+void Figure::setProper() {
+	shape.setPosition(pos.x, pos.y);
+	shape.setScale(size.x, size.y);
+}
 bool Figure::getFrame(Vector2f posM) {
 	return (pos.x - radius * size.x < posM.x && pos.x + radius * size.x > posM.x && pos.y - radius * size.y < posM.y && pos.y + radius * size.y > posM.y);
 }

@@ -4,6 +4,7 @@
 // Button add Circle
 
 btnAddCircle::btnAddCircle(){
+	name = "add";
 	pos = { 2, 22 };
 	size = { 36, 36 };
 	text.setString("Circle");
@@ -20,7 +21,7 @@ void btnAddCircle::drawUI(RenderWindow & window) {
 	window.draw(text);
 }
 
-void btnAddCircle::commandBtn(std::vector<Figure*> &shapes) {
+void btnAddCircle::commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator & it) {
 	shapes.push_back(new Circle);
 }
 
@@ -29,6 +30,7 @@ void btnAddCircle::commandBtn(std::vector<Figure*> &shapes) {
 // Button add Triangle
 
 btnAddTriangle::btnAddTriangle(){
+	name = "add";
 	pos = { 42, 22 };
 	size = { 36, 36 };
 	text.setString("Triangle");
@@ -44,7 +46,7 @@ void btnAddTriangle::drawUI(RenderWindow & window) {
 	window.draw(btnShape);
 	window.draw(text);
 }
-void btnAddTriangle::commandBtn(std::vector<Figure*> &shapes) {
+void btnAddTriangle::commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator &it) {
 	shapes.push_back(new Triangle);
 }
 
@@ -52,6 +54,7 @@ void btnAddTriangle::commandBtn(std::vector<Figure*> &shapes) {
 // Button add Rectangle
 
 btnAddRectangle::btnAddRectangle(){
+	name = "add";
 	pos = {82, 22 };
 	size = { 36, 36 };
 	text.setString("Square");
@@ -68,6 +71,6 @@ void btnAddRectangle::drawUI(RenderWindow & window) {
 	window.draw(text);
 }
 
-void btnAddRectangle::commandBtn(std::vector<Figure*> &shapes) {
+void btnAddRectangle::commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator &it) {
 	shapes.push_back(new Square);
 }

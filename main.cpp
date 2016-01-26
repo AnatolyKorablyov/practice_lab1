@@ -24,21 +24,29 @@ int main() {
 	UIcomponents.push_back(new btnAddTriangle);
 	UIcomponents.push_back(new btnAddRectangle);
 	UIcomponents.push_back(new btnUndo);
-	//UIcomponents.push_back(new btnRedo);
+	UIcomponents.push_back(new btnRedo);
 
 	vector<storyR*> Story;
-	vector<storyR*>::iterator it;
+	vector<storyR*>::iterator iter;
 	while (window.isOpen()) {
+
+		
+
 		Event event;
 		Vector2i pixelPos = Mouse::getPosition(window);
 		Vector2f posMouse = window.mapPixelToCoords(pixelPos);
 		while (window.pollEvent(event)) {
-			it = Story.end();
 			if (event.type == sf::Event::Closed)
 				window.close();
 			for (auto i : UIcomponents) {
 				if (event.type == Event::MouseButtonReleased && event.key.code == Mouse::Left && i->checkIntersects(posMouse)) {
-					i->commandBtn(shapes);
+					i->commandBtn(shapes, iter);
+					if (i->name == "add") {
+						Story.push_back(new storyR("add", shapes.size() - 1, shapes[shapes.size() - 1]->pos, shapes[shapes.size() - 1]->size));
+						iter = Story.end();
+						iter--;
+					}
+					
 				}
 			}
 			for (int it = shapes.size() - 1; it >= 0; it--) {
@@ -63,12 +71,24 @@ int main() {
 							i->frame = false;
 						}
 						if (i->isMove) {
+							iter++;
+							while (iter != Story.end()) {
+								iter = Story.erase(iter);
+							}
 							Story.push_back(new storyR("move", it, i->pos, i->size));
 							i->isMove = false;
+							iter = Story.end();
+							iter--;
 						}
 						if (i->resizeS) {
+							iter++;
+							while (iter != Story.end()) {
+								iter = Story.erase(iter);
+							}
 							Story.push_back(new storyR("resize", it, i->pos, i->size));
 							i->resizeS = false;
+							iter = Story.end();
+							iter--;
 						}
 				
 					}

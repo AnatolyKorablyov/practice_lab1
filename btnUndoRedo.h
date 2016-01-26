@@ -8,7 +8,7 @@ public:
 	btnUndo();
 	~btnUndo();
 	virtual void drawUI(RenderWindow & window) override;
-	virtual void commandBtn(std::vector<Figure*> &shapes) override;
+	virtual void commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator &it) override;
 };
 
 class btnRedo : public UI
@@ -17,5 +17,5 @@ public:
 	btnRedo();
 	~btnRedo();
 	virtual void drawUI(RenderWindow & window) override;
-	virtual void commandBtn(std::vector<Figure*> &shapes) override;
+	virtual void commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator & it) override;
 };

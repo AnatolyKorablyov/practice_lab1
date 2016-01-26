@@ -14,7 +14,7 @@ public:
 	btnAddCircle();
 	~btnAddCircle();
 	virtual void drawUI(RenderWindow & window) override;
-	virtual void commandBtn(std::vector<Figure*> &shapes) override;
+	virtual void commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator &it) override;
 };
 
 class btnAddTriangle : public UI{
@@ -24,7 +24,7 @@ public:
 	btnAddTriangle();
 	~btnAddTriangle();
 	virtual void drawUI(RenderWindow & window) override;
-	virtual void commandBtn(std::vector<Figure*> &shapes) override;
+	virtual void commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator &it) override;
 };
 
 class btnAddRectangle : public UI{
@@ -34,6 +34,6 @@ public:
 	btnAddRectangle();
 	~btnAddRectangle();
 	virtual void drawUI(RenderWindow & window) override;
-	virtual void commandBtn(std::vector<Figure*> &shapes) override;
+	virtual void commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator &it) override;
 
 };

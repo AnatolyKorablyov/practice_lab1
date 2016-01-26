@@ -19,6 +19,6 @@ public:
 	~UI();
 	bool checkIntersects(Vector2f posM);
 	virtual void drawUI(RenderWindow & window) = 0;
-	virtual void commandBtn(std::vector<Figure*> &shapes) = 0;
+	virtual void commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator &it) = 0;
 };
 

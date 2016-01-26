@@ -15,8 +15,12 @@ void btnUndo::drawUI(RenderWindow & window) {
 	window.draw(text);
 }
 
-void btnUndo::commandBtn(std::vector<Figure*> &shapes) {
-	
+void btnUndo::commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator &it) {
+	it--;
+	int num = (*it)->typeFigure;
+	shapes[num]->pos = (*it)->pos;
+	shapes[num]->size = (*it)->size;
+	shapes[num]->setProper();
 }
 
 
@@ -37,8 +41,12 @@ void btnRedo::drawUI(RenderWindow & window) {
 	window.draw(text);
 }
 
-void btnRedo::commandBtn(std::vector<Figure*> &shapes) {
-	
+void btnRedo::commandBtn(std::vector<Figure*> &shapes, std::vector<storyR*>::iterator &it) {
+	it++;
+	int num = (*it)->typeFigure;
+	shapes[num]->pos = (*it)->pos;
+	shapes[num]->size = (*it)->size;
+	shapes[num]->setProper();
 }
 
 btnRedo::~btnRedo()
