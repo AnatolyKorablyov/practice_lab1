@@ -4,7 +4,7 @@
 Figure::Figure() {
 }
 
-Figure::Figure(ConvexShape shap){
+Figure::Figure(CircleShape shap){
 	shape = shap;
 }
 
@@ -13,8 +13,11 @@ Figure::~Figure()
 }
 
 void Figure::setPropert() {
+	shape.setOutlineColor(Color::Green);
+	shape.setOutlineThickness(2);
 	shape.setPosition(pos.x, pos.y);
 	shape.setOrigin(radius, radius);
+	shape.setRadius(radius);
 	shape.setFillColor(color);
 
 	accentuation.setOutlineThickness(2);
@@ -29,16 +32,7 @@ void Figure::setPropert() {
 	}
 }
 
-void Figure::frameSetProperties() {
-	accentuation.setPosition(shape.getPosition());
-	accentuation.setOrigin(radius * size.x, radius * size.y);
-	accentuation.setSize(Vector2f(radius * size.x * 2, radius *  size.y * 2));
 
-	pointMarker[0] = Vector2f(pos.x - radius * size.x, pos.y - radius * size.y);
-	pointMarker[1] = Vector2f(pos.x + radius * size.x, pos.y - radius * size.y);
-	pointMarker[2] = Vector2f(pos.x + radius * size.x, pos.y + radius * size.y);
-	pointMarker[3] = Vector2f(pos.x - radius * size.x, pos.y + radius * size.y);
-}
 
 void Figure::move(Vector2f posMouse) {
 
@@ -48,13 +42,17 @@ void Figure::move(Vector2f posMouse) {
 }
 
 void Figure::resize(Vector2f posMouse) {
-	size = { abs(posMouse.x - pos.x) / (radius),  abs(posMouse.y - pos.y) / (radius) };
-	shape.setScale(size.x, size.y);
+	radius = sqrt(abs(posMouse.x - pos.x)*abs(posMouse.x - pos.x) + abs(posMouse.y - pos.y)*abs(posMouse.y - pos.y));
+	//size = { abs(posMouse.x - pos.x) / (radius),  abs(posMouse.y - pos.y) / (radius) };
+	//shape.setScale(size.x, size.y);
+	shape.setRadius(radius);
+	shape.setOrigin(radius, radius);
+
 }
 
 void Figure::setProper() {
 	shape.setPosition(pos.x, pos.y);
-	shape.setScale(size.x, size.y);
+	shape.setRadius(radius);
 }
 bool Figure::getFrame(Vector2f posM) {
 	return (pos.x - radius * size.x < posM.x && pos.x + radius * size.x > posM.x && pos.y - radius * size.y < posM.y && pos.y + radius * size.y > posM.y);

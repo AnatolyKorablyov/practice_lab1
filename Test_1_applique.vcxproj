@@ -124,6 +124,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="btnAdd.cpp" />
     <ClCompile Include="btnUndoRedo.cpp" />
     <ClCompile Include="Circle.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="WorkPlace.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="btnAdd.h" />
     <ClInclude Include="btnUndoRedo.h" />
     <ClInclude Include="Circle.h" />

@@ -9,7 +9,6 @@ using namespace std;
 
 class btnAddCircle : public UI{
 private:
-	Circle circ;
 public:
 	btnAddCircle();
 	~btnAddCircle();

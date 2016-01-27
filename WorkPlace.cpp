@@ -4,7 +4,7 @@
 
 WorkPlace::WorkPlace(){
 	backgroundUI.setSize(Vector2f(800, 60));
-	backgroundUI.setFillColor(Color::Color(200, 200, 200, 250));
+	backgroundUI.setFillColor(Color::Color(186, 199, 212, 250));
 	backgroundUI.setPosition(0, 0);
 
 
@@ -21,4 +21,7 @@ WorkPlace::~WorkPlace()
 
 bool WorkPlace::getRect(Vector2f posM) {
 	return (pos.x   < posM.x && pos.x + sizeR.x > posM.x && pos.y < posM.y && pos.y + sizeR.y > posM.y);
+}
+
+void WorkPlace::frameSetProperties() {
 }

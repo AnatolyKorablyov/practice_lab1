@@ -9,5 +9,6 @@ public:
 	WorkPlace();
 	~WorkPlace();
 	virtual bool getRect(Vector2f posMouse) override;
+	virtual void frameSetProperties() override;
 };
 
