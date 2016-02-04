@@ -1,0 +1,11 @@
+﻿  main.cpp
+  btnAdd.cpp
+  View.cpp
+  UI.cpp
+  Triangle.cpp
+c:\users\cmoyk\documents\visual studio 2015\projects\practice_ispring\lab1_applique\lab1_applique\triangle.cpp(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Square.cpp
+  Model.cpp
+  Figure.cpp
+  Controller.cpp
+  Circle.cpp
